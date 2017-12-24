@@ -1,0 +1,5 @@
+.idea/*
+documentation/*
+build/*
+build.xml
+DB.properties
