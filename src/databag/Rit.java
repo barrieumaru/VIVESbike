@@ -5,8 +5,10 @@ import datatype.Rijksregisternummer;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import facades.Model;
 
-public class Rit {
+public class Rit extends Model<Rit>
+{
 
     private Integer ritID;
     private LocalDateTime starttijd;
@@ -15,7 +17,9 @@ public class Rit {
     private Rijksregisternummer lidRijksregisternummer;
     private int fietsRegistratienummer;
 
-    public Rit() {
+    public Rit() 
+    {
+        super(Rit.class, "Rit");
     }
 
     public Integer getRitID() {

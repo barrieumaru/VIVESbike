@@ -1,108 +1,96 @@
 
 package databag;
-
+import facades.Model;
 import datatype.Geslacht;
 import datatype.Rijksregisternummer;
 import java.time.LocalDate;
 
-public class Lid {
-
-    private Rijksregisternummer rijksregisternummer;
-    private String naam;
-    private String voornaam;
-    private Geslacht geslacht;
-    private String telnr;
-    private String emailadres;
-    private LocalDate start_lidmaatschap;
-    private LocalDate einde_lidmaatschap;
-    private String opmerkingen;
-
+public class Lid extends Model<Lid>
+{
     public Lid() 
     {
+        super(Lid.class, "Lid");
     }
 
     
     public String getRijksregisternummer()
     {
-        if (rijksregisternummer == null) {
-            return null;
-        } else {
-            return rijksregisternummer.getRijksregisternummer();
-        }
+        return (String) getField("rijksregisternummer");
     }
 
-    public void setRijksregisternummer(Rijksregisternummer rijksregisternummer) {
-        this.rijksregisternummer = rijksregisternummer;
+    public void setRijksregisternummer(Rijksregisternummer rijksregisternummer) 
+    {
+        setField("rijksregisternummer", rijksregisternummer);
     }
 
     public String getNaam() {
-        return naam;
+        return (String)getField("naam");
     }
 
     public void setNaam(String naam) {
-        this.naam = naam;
+         setField ("naam" , naam);
     }
 
     public String getVoornaam() {
-        return voornaam;
+        return (String)getField("voornaam");
     }
 
     public void setVoornaam(String voornaam) {
-        this.voornaam = voornaam;
+         setField("voornaam", voornaam);
     }
 
     public Geslacht getGeslacht() {
-        return geslacht;
+        return Geslacht.valueOf((String) getField("geslacht"));
     }
 
     public void setGeslacht(Geslacht geslacht) {
-        this.geslacht = geslacht;
+         setField("geslacht" , geslacht);
     }
 
     public String getTelnr() {
-        return telnr;
+        return (String)getField("telnr");
     }
 
     public void setTelnr(String telnr) {
-        this.telnr = telnr;
+        setField("telnr" , telnr);
     }
 
     public String getEmailadres() {
-        return emailadres;
+        return (String)getField("emailadres");
     }
 
     public void setEmailadres(String email) {
-        this.emailadres = email;
+         setField("emailadres", email);
     }
 
     public LocalDate getStart_lidmaatschap() {
-        return start_lidmaatschap;
+        return LocalDate.parse((String) getField("start_lidmaatschap"));
     }
 
     public void setStart_lidmaatschap(LocalDate start_lidmaatschap) {
-        this.start_lidmaatschap = start_lidmaatschap;
+        setField("start_lidmaatschap" , start_lidmaatschap);
     }
 
     public LocalDate getEinde_lidmaatschap() {
-        return einde_lidmaatschap;
+        return LocalDate.parse((String)getField("einde_lidmaatschap"));
     }
 
     public void setEinde_lidmaatschap(LocalDate einde_lidmaatschap) {
-        this.einde_lidmaatschap = einde_lidmaatschap;
+         setField("einde_lidmaatschap ", einde_lidmaatschap);
     }
 
     public String getOpmerkingen() {
-        return opmerkingen;
+        return (String)getField("opmerkingen");
     }
 
     public void setOpmerkingen(String opmerkingen) {
-        this.opmerkingen = opmerkingen;
+         setField("opmerkingen", opmerkingen);
     }
 
     
     @Override
     public String toString() {
-        return "Lid{" + "rijksregisternummer=" + rijksregisternummer + ", naam=" + naam + ", voornaam=" + voornaam + ", geslacht=" + geslacht + ", telnr=" + telnr + ", email=" + emailadres + ", start_lidmaatschap=" + start_lidmaatschap + ", einde_lidmaatschap=" + einde_lidmaatschap + ", opmerkingen=" + opmerkingen + '}';
+        return "Lid{" + "rijksregisternummer=" + getRijksregisternummer() + ", naam=" + getNaam() + ", voornaam=" + getVoornaam() + ", geslacht=" + getGeslacht() + ", telnr=" + getTelnr() + ", email=" + getEmailadres() + ", start_lidmaatschap=" + getStart_lidmaatschap() + ", einde_lidmaatschap=" + getEinde_lidmaatschap() + ", opmerkingen=" + getOpmerkingen() + '}';
     }
 
 }

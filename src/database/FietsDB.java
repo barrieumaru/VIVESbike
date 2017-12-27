@@ -1,6 +1,7 @@
 package database;
 
 import databag.Fiets;
+import databag.Rit;
 import datatype.Status;
 import facades.Model;
 

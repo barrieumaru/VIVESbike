@@ -508,7 +508,7 @@ public abstract class Model<T extends Model> implements QueryAble
     }
 
     /**
-     * Retunrs a field of the object.
+     * Returs a field of the object.
      * @param name  The name of the field.
      * @return The value of the field associated with the given name.
      */
