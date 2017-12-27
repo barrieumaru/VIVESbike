@@ -10,7 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.jetbrains.annotations.NotNull;
+
+;
 import ui.controller.LedenBeheerController;
 import ui.controller.StartschermController;
 
@@ -75,7 +76,7 @@ public class VIVESbike extends Application {
 
     }
 
-    @NotNull
+    
     public Stage getPrimaryStage()
     {
         return stage;

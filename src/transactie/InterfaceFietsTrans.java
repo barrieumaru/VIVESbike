@@ -6,7 +6,8 @@
 package transactie;
 
 import databag.Fiets;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  */
 public interface InterfaceFietsTrans {
 
-    @NotNull Integer toevoegenFiets(Fiets fiets) throws Exception;
+     Integer toevoegenFiets(Fiets fiets) throws Exception;
 
     void wijzigenActiefNaarHerstel(Integer regnr) throws Exception;
 
@@ -28,8 +29,8 @@ public interface InterfaceFietsTrans {
 
     void wijzigenOpmerkingFiets(Integer regnr, String opmerking) throws Exception;
 
-    @NotNull Fiets zoekFiets(Integer registratienummer) throws Exception;
+     Fiets zoekFiets(Integer registratienummer) throws Exception;
 
-    @NotNull ArrayList<Fiets> zoekAlleFietsen() throws Exception;
+     ArrayList<Fiets> zoekAlleFietsen() throws Exception;
 
 }

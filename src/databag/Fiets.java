@@ -4,7 +4,7 @@ package databag;
 import datatype.Standplaats;
 import datatype.Status;
 import facades.Model;
-import org.jetbrains.annotations.NotNull;
+;
 
 /**
  * A Specialized model representing the database layer
@@ -21,7 +21,7 @@ public class Fiets extends Model<Fiets>
         return Standplaats.valueOf((String) getField("standplaats"));
     }
 
-    public void setStandplaats(@NotNull Standplaats standplaats)
+    public void setStandplaats( Standplaats standplaats)
     {
         setField("standplaats", standplaats.toString());
     }
@@ -31,12 +31,12 @@ public class Fiets extends Model<Fiets>
         return Status.valueOf((String) getField("status"));
     }
 
-    public void setStatus(@NotNull Status status)
+    public void setStatus( Status status)
     {
         setField("status", status.toString());
     }
 
-    @NotNull
+    
     public Integer getRegistratienummer()
     {
         return (Integer) getField("registratienummer");
@@ -47,7 +47,7 @@ public class Fiets extends Model<Fiets>
         setField("registratienummer", registratienummer);
     }
 
-    @NotNull
+    
     public String getOpmerking()
     {
         return (String) getField("opmerkingen");

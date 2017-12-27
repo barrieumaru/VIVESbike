@@ -2,7 +2,6 @@ package facades;
 
 import database.connect.ConnectionManager;
 import exception.DBException;
-import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
@@ -43,13 +42,13 @@ public abstract class Model<T extends Model> implements QueryAble
     // Integer is needed as the Types class in java.sql are not enum class.
     // This is used to force strict typing in the values it accepts for each individual
     // field of the model.
-    @NotNull
+    
     private static HashMap<Integer, Class<?>> dBToField = new HashMap<>();
     // A simple mapping to produce a handler for every single type the Model accepts and
     // be able to 'pull' it from the ResultSet.
-    @NotNull
+    
     private static HashMap<Class<?>, BiFunction<ResultSet, String, Object>> fieldToFunction = new HashMap<>();
-    @NotNull
+    
     private static HashMap<Class<?>, CachedClass> cache = new HashMap<>();
 
     private static class CachedClass
@@ -92,13 +91,13 @@ public abstract class Model<T extends Model> implements QueryAble
      * @param <M>       The Model to construct.
      * @return A new instance of the model.
      */
-    public static <M extends Model> M constructModel(@NotNull Class<M> class_)
+    public static <M extends Model> M constructModel( Class<M> class_)
     {
         try
         {
             return class_.cast(class_.getDeclaredConstructors()[0].newInstance());
         }
-        catch (@NotNull InstantiationException | InvocationTargetException | IllegalAccessException e)
+        catch ( InstantiationException | InvocationTargetException | IllegalAccessException e)
         {
             e.printStackTrace();
             throw new RuntimeException();
@@ -109,7 +108,7 @@ public abstract class Model<T extends Model> implements QueryAble
      * Find the Model with its primary key and load the contents.
      * @param primary   The primary key to load the model with.
      */
-    public T find(@NotNull Object primary)
+    public T find( Object primary)
     {
         ResultSet set = getQuery()  .select()
                                     .where(getPrimaryKeys().get(0), primary.toString())
@@ -138,7 +137,7 @@ public abstract class Model<T extends Model> implements QueryAble
      * Find a Model with its composite primary key and load the contents.
      * @param primary   The primary key set where the key represents its name and the value the value of the key.
      */
-    public T find (@NotNull Map<String, Object> primary)
+    public T find ( Map<String, Object> primary)
     {
         Comparator[] comps = new Comparator[primary.size()];
         int i = 0;
@@ -164,7 +163,7 @@ public abstract class Model<T extends Model> implements QueryAble
      * Writes the current state to persistent storage through the connection and returns the
      * primaryKeySet of the object.
      */
-    @NotNull
+    
     public ArrayList<Object> store()
     {
         getQuery().insert(prepareFields()).execute();
@@ -185,7 +184,7 @@ public abstract class Model<T extends Model> implements QueryAble
         return cast(this);
     }
 
-    @NotNull
+    
     @Override
     public ArrayList<T> get()
     {
@@ -402,7 +401,7 @@ public abstract class Model<T extends Model> implements QueryAble
             } else
                 loadFromCache();
         }
-        catch(@NotNull DBException | SQLException e)
+        catch( DBException | SQLException e)
         {
             throw new RuntimeException();
         }
@@ -547,7 +546,7 @@ public abstract class Model<T extends Model> implements QueryAble
      * Loads the primary key values into another set.
      * @return  The primary keys.
      */
-    @NotNull
+    
     private ArrayList<Object> loadPrimaryKeys()
     {
         ArrayList<Object> intersect = new ArrayList<>();
@@ -578,7 +577,7 @@ public abstract class Model<T extends Model> implements QueryAble
      * Prepares the field of the model to be used in a query.
      * @return  The prepared fields.
      */
-    @NotNull
+    
     private HashMap<String, String> prepareFields()
     {
         HashMap<String, String> fields = new HashMap<>();
@@ -596,7 +595,7 @@ public abstract class Model<T extends Model> implements QueryAble
      * Returns all comparators to identify a row by its primary keys.
      * @return  The comparators.
      */
-    @NotNull
+    
     private Comparator[] getPrimaryComparators()
     {
         ArrayList<Object> values = loadPrimaryKeys();
@@ -624,7 +623,7 @@ public abstract class Model<T extends Model> implements QueryAble
      *
      * @return cache
      */
-    @NotNull
+    
     private static HashMap<Class<?>, CachedClass> getCache()
     {
         return cache;

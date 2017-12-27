@@ -1,6 +1,7 @@
 package facades;
 
-import org.jetbrains.annotations.NotNull;
+
+;
 
 public class Comparator
 {
@@ -15,7 +16,7 @@ public class Comparator
         this.rval = rval;
     }
 
-    @NotNull
+    
     public String toString()
     {
         return lval + ' ' + val + " '" + rval + '\'';

@@ -6,13 +6,14 @@
 package transactie;
 
 import databag.Rit;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.util.ArrayList;
 
 public class RitTrans implements InterfaceRitTrans {
 
-    @NotNull
+    
     @Override
     public Integer toevoegenRit(Rit rit)
     {
@@ -25,35 +26,35 @@ public class RitTrans implements InterfaceRitTrans {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @NotNull
+    
     @Override
     public ArrayList zoekAlleRitten()
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @NotNull
+    
     @Override
     public Rit zoekRit(Integer ritID)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @NotNull
+    
     @Override
     public Integer zoekEersteRitVanLid(String rr)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @NotNull
+    
     @Override
     public ArrayList zoekActieveRittenVanLid(String rr)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @NotNull
+    
     @Override
     public ArrayList zoekActieveRittenVanFiets(Integer regnr)
     {

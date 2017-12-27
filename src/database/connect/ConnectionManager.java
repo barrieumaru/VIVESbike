@@ -2,7 +2,8 @@ package database.connect;
 
 
 import exception.DBException;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
@@ -17,7 +18,7 @@ public class ConnectionManager {
             //driver laden
             Class.forName(DBProp.getDriver()).getDeclaredConstructors()[0].newInstance();
             return DriverManager.getConnection(DBProp.getDbUrl(), DBProp.getLogin(), DBProp.getPaswoord());
-        } catch (@NotNull ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | InvocationTargetException ex) {
+        } catch ( ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | InvocationTargetException ex) {
             ex.printStackTrace();
             throw new DBException("Connectie met de database mislukt");
         }

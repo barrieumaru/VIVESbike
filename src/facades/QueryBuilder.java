@@ -1,7 +1,8 @@
 package facades;
 
 import exception.UncheckedSQLException;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.sql.*;
 import java.util.*;
@@ -18,13 +19,13 @@ class QueryBuilder implements QueryAble
     // The name of the table in the persistent storage.
     private String table;
     // A collection representing all columns to be selected.
-    @NotNull
+    
     private HashSet<String> selections = new HashSet<>();
     // A collection of comparisons to specify a subset to query.
-    @NotNull
+    
     private ArrayList<Comparator> comparisons = new ArrayList<>();
     // A collection of columns and values to be modified in some way.
-    @NotNull
+    
     private HashMap<String, String> modifiers = new HashMap<>();
     // A variable simply representing what mode this query is in. Possible modes are
     // enumerated in QueryMode.
@@ -64,7 +65,7 @@ class QueryBuilder implements QueryAble
      * Simply return the state of the builder in SQL format.
      * @return  The sql string.
      */
-    @NotNull String toSql()
+     String toSql()
     {
         StringBuilder tbr = new StringBuilder(getQueryMode().toString());
         if (getQueryMode() != QueryMode.UNDECIDED)
@@ -81,13 +82,13 @@ class QueryBuilder implements QueryAble
         return tbr.toString();
     }
 
-    private void deleteSql(@NotNull StringBuilder sql)
+    private void deleteSql( StringBuilder sql)
     {
         sql.append(" FROM ").append(getTable());
         comparisonsSql(sql);
     }
 
-    private void updateSql(@NotNull StringBuilder sql)
+    private void updateSql( StringBuilder sql)
     {
            if (getModifiers().size() != 0)
            {
@@ -101,7 +102,7 @@ class QueryBuilder implements QueryAble
                setQueryMode(QueryMode.UNDECIDED);
     }
 
-    private void insertSql(@NotNull StringBuilder sql)
+    private void insertSql( StringBuilder sql)
     {
         if (getModifiers().size() != 0)
         {
@@ -122,7 +123,7 @@ class QueryBuilder implements QueryAble
             setQueryMode(QueryMode.UNDECIDED);
     }
 
-    private void comparisonsSql(@NotNull StringBuilder sql)
+    private void comparisonsSql( StringBuilder sql)
     {
         if (getComparisons().size() != 0)
         {
@@ -133,7 +134,7 @@ class QueryBuilder implements QueryAble
         }
     }
 
-    private void selectSql(@NotNull StringBuilder sql)
+    private void selectSql( StringBuilder sql)
     {
         if (getSelections().size() != 0)
         {
@@ -146,7 +147,7 @@ class QueryBuilder implements QueryAble
         comparisonsSql(sql);
     }
 
-    @NotNull
+    
     @Override
     public QueryBuilder select(String[] selections)
     {
@@ -163,7 +164,7 @@ class QueryBuilder implements QueryAble
             throw new RuntimeException();
     }
 
-    @NotNull
+    
     @Override
     public QueryBuilder select(String selection)
     {
@@ -180,7 +181,7 @@ class QueryBuilder implements QueryAble
             throw new RuntimeException();
     }
 
-    @NotNull
+    
     @Override
     public QueryBuilder select()
     {
@@ -218,21 +219,21 @@ class QueryBuilder implements QueryAble
         }
     }
 
-    @NotNull
+    
     public QueryBuilder where(Comparator comparison)
     {
         getComparisons().add(comparison);
         return this;
     }
 
-    @NotNull
+    
     public QueryBuilder where(Comparator[] comparison)
     {
         getComparisons().addAll(Arrays.asList(comparison));
         return this;
     }
 
-    @NotNull
+    
     @Override
     public QueryBuilder where(String lhs, String rhs)
     {
@@ -259,8 +260,8 @@ class QueryBuilder implements QueryAble
      * @param columnValues  The Map representing the column names and their values.
      * @return  The this pointer.
      */
-    @NotNull
-    public QueryBuilder insert(@NotNull Map<String, String> columnValues)
+    
+    public QueryBuilder insert( Map<String, String> columnValues)
     {
         if (getQueryMode() == QueryMode.UNDECIDED)
             setQueryMode(QueryMode.INSERT);
@@ -284,7 +285,7 @@ class QueryBuilder implements QueryAble
      * @param value The desired value of the column.
      * @return  The this pointer.
      */
-    @NotNull
+    
     public QueryBuilder insert(String column, String value)
     {
         if (getQueryMode() == QueryMode.UNDECIDED)
@@ -308,7 +309,7 @@ class QueryBuilder implements QueryAble
      * @param value     The value to update the column with.
      * @return  The this pointer.
      */
-    @NotNull
+    
     public QueryBuilder update(String column, String value)
     {
         if (getQueryMode() == QueryMode.UNDECIDED)
@@ -325,8 +326,8 @@ class QueryBuilder implements QueryAble
      * @param values    The column and value pairs to update with.
      * @return  The this pointer.
      */
-    @NotNull
-    public QueryBuilder update(@NotNull Map<String, String> values)
+    
+    public QueryBuilder update( Map<String, String> values)
     {
         if (getQueryMode() == QueryMode.UNDECIDED)
             setQueryMode(QueryMode.UPDATE);
@@ -336,7 +337,7 @@ class QueryBuilder implements QueryAble
     /**
      * Deletes all entries specified by the Comparators accumulated in the Query builder.
      */
-    @NotNull
+    
     public QueryBuilder delete()
     {
         if (getQueryMode() == QueryMode.UNDECIDED)
@@ -351,7 +352,7 @@ class QueryBuilder implements QueryAble
      * @return The selections.
      * @note this method is protected because Models need access to selections in order to ALWAYS be able to select primary keys.
      */
-    @NotNull
+    
     private HashSet<String> getSelections()
     {
         return selections;
@@ -408,13 +409,13 @@ class QueryBuilder implements QueryAble
      *
      * @return comparisons
      */
-    @NotNull
+    
     private ArrayList<Comparator> getComparisons()
     {
         return comparisons;
     }
 
-    @NotNull
+    
     private HashMap<String, String> getModifiers()
     {
         return modifiers;

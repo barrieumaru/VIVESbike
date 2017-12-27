@@ -1,10 +1,5 @@
 package facades;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.lang.reflect.InvocationTargetException;
-
 /**
  * A class representing a more 'lightweight' concept such as a struct or tuple in order to keep track of all
  * inspections between a model and the connection.
@@ -18,17 +13,17 @@ class FieldData
     // Enums cannot successfully be deduces from there, a possible way out is to let
     // users overwrite the variables in a class, but that would require INTENSIVE
     // reflection
-    @NotNull
+    
     private Class<?> runtimeType;
-    @Nullable
+    
     private Object runtimeValue = null;
 
-    FieldData(@NotNull Class<?> type)
+    FieldData( Class<?> type)
     {
         runtimeType = type;
     }
 
-    void setRunTimeValue(@Nullable Object object)
+    void setRunTimeValue( Object object)
     {
         if (object != null && object.equals("NULL"))
             runtimeValue = null;
@@ -38,18 +33,18 @@ class FieldData
             throw new ClassCastException();
     }
 
-    @Nullable Object getRunTimeValue()
+     Object getRunTimeValue()
     {
         return runtimeValue;
     }
 
-    @NotNull Class<?> getRuntimeType()
+     Class<?> getRuntimeType()
     {
         return runtimeType;
     }
 
     @Override
-    @NotNull
+    
     public FieldData clone()
     {
         return new FieldData(runtimeType);

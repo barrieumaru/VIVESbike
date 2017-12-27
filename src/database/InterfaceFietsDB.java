@@ -8,8 +8,6 @@ package database;
 import databag.Fiets;
 import datatype.Status;
 import exception.DBException;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 
 /**
@@ -18,13 +16,13 @@ import java.util.ArrayList;
  */
 public interface InterfaceFietsDB {
 
-    @NotNull Integer toevoegenFiets(Fiets fiets) throws DBException;
+     Integer toevoegenFiets(Fiets fiets) throws DBException;
 
     void wijzigenToestandFiets(Integer regnr, Status status) throws Exception;
 
     void wijzigenOpmerkingFiets(Integer regnr, String opmerking) throws Exception;
 
-    @NotNull Fiets zoekFiets(Integer regnr) throws Exception;
+     Fiets zoekFiets(Integer regnr) throws Exception;
 
-    @NotNull ArrayList<Fiets> zoekAlleFietsen() throws Exception;
+     ArrayList<Fiets> zoekAlleFietsen() throws Exception;
 }

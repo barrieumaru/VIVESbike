@@ -2,12 +2,11 @@ package facades;
 
 import database.connect.ConnectionManager;
 import exception.DBException;
-import org.junit.jupiter.api.*;
 
 import java.sql.SQLException;
 import java.util.HashMap;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import org.junit.*;
 
 
 class QueryBuilderTest
@@ -15,13 +14,13 @@ class QueryBuilderTest
     private QueryBuilder builder;
     private final static String TEST_TABLE = "unit_test_table";
 
-    @BeforeAll
+    @BeforeClass
     static void setUp() throws DBException, SQLException
     {
         ConnectionManager.getConnection().prepareStatement("CREATE TABLE " + TEST_TABLE + " (test1 TEXT, test2 INT)").execute();
     }
 
-    @BeforeEach
+    @Before
     void setUpEach() throws DBException
     {
         builder = new QueryBuilder(ConnectionManager.getConnection(), TEST_TABLE);
@@ -174,7 +173,7 @@ class QueryBuilderTest
         assertEquals("UPDATE "+TEST_TABLE+" SET test1 = 'new value' WHERE test1 = 'hallo'", builder.toSql());
     }
 
-    @AfterAll
+    @AfterClass
     static void tearDown() throws DBException, SQLException
     {
         ConnectionManager.getConnection().prepareStatement("DROP TABLE " + TEST_TABLE).execute();

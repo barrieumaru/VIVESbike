@@ -6,7 +6,8 @@
 package transactie;
 
 import databag.Lid;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public interface InterfaceLidTrans {
 
     void uitschrijvenLid(String rr) throws Exception;
 
-    @NotNull Lid zoekLid(String rijksregisternummer) throws Exception;
+     Lid zoekLid(String rijksregisternummer) throws Exception;
 
-    @NotNull ArrayList<Lid> zoekAlleLeden() throws Exception;
+     ArrayList<Lid> zoekAlleLeden() throws Exception;
 }

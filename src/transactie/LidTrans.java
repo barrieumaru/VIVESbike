@@ -1,7 +1,8 @@
 package transactie;
 
 import databag.Lid;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.util.ArrayList;
 
@@ -25,13 +26,13 @@ public class LidTrans implements InterfaceLidTrans {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @NotNull
+    
     @Override
     public Lid zoekLid(String rijksregisternummer)  {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @NotNull
+    
     @Override
     public ArrayList<Lid> zoekAlleLeden()
     {

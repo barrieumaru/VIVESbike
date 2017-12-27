@@ -6,7 +6,8 @@
 package transactie;
 
 import databag.Rit;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.util.ArrayList;
 
@@ -16,18 +17,18 @@ import java.util.ArrayList;
  */
 public interface InterfaceRitTrans {
 
-    @NotNull Integer toevoegenRit(Rit rit) throws Exception;
+     Integer toevoegenRit(Rit rit) throws Exception;
 
     void afsluitenRit(Integer id) throws Exception;
 
-    @NotNull ArrayList zoekAlleRitten() throws Exception;
+     ArrayList zoekAlleRitten() throws Exception;
 
-    @NotNull Rit zoekRit(Integer ritID) throws Exception;
+     Rit zoekRit(Integer ritID) throws Exception;
 
-    @NotNull Integer zoekEersteRitVanLid(String rr) throws Exception;
+     Integer zoekEersteRitVanLid(String rr) throws Exception;
 
-    @NotNull ArrayList zoekActieveRittenVanLid(String rr) throws Exception;
+     ArrayList zoekActieveRittenVanLid(String rr) throws Exception;
 
-    @NotNull ArrayList zoekActieveRittenVanFiets(Integer regnr) throws Exception;
+     ArrayList zoekActieveRittenVanFiets(Integer regnr) throws Exception;
 
 }

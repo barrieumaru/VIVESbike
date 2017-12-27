@@ -3,22 +3,17 @@ package facades;
 import databag.Fiets;
 import datatype.Standplaats;
 import datatype.Status;
-import org.jetbrains.annotations.NotNull;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
+import static org.junit.Assert.*;
 import java.util.ArrayList;
+import org.junit.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+class ModelTest 
+{
 
-class ModelTest {
-
-    @NotNull
     private static Integer key = 12345;
     private Fiets model;
 
-    @BeforeEach
+    @Before
     void setUp()
     {
         model = Model.constructModel(Fiets.class);
@@ -79,7 +74,8 @@ class ModelTest {
         assertEquals("nieuwe opmerking", model.find(key).getOpmerking());
     }
 
-    @AfterEach
+    @After
+
     void tearDown()
     {
         model.find(key).delete();

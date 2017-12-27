@@ -3,9 +3,6 @@ package databag;
 
 import datatype.Geslacht;
 import datatype.Rijksregisternummer;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import java.time.LocalDate;
 
 public class Lid {
@@ -24,7 +21,7 @@ public class Lid {
     {
     }
 
-    @Nullable
+    
     public String getRijksregisternummer()
     {
         if (rijksregisternummer == null) {
@@ -102,7 +99,7 @@ public class Lid {
         this.opmerkingen = opmerkingen;
     }
 
-    @NotNull
+    
     @Override
     public String toString() {
         return "Lid{" + "rijksregisternummer=" + rijksregisternummer + ", naam=" + naam + ", voornaam=" + voornaam + ", geslacht=" + geslacht + ", telnr=" + telnr + ", email=" + emailadres + ", start_lidmaatschap=" + start_lidmaatschap + ", einde_lidmaatschap=" + einde_lidmaatschap + ", opmerkingen=" + opmerkingen + '}';

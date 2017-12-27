@@ -2,13 +2,14 @@
 package transactie;
 
 import databag.Fiets;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.util.ArrayList;
 
 public class FietsTrans implements InterfaceFietsTrans {
 
-    @NotNull
+    
     @Override
     public Integer toevoegenFiets(Fiets fiets)
     {
@@ -46,14 +47,14 @@ public class FietsTrans implements InterfaceFietsTrans {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @NotNull
+    
     @Override
     public Fiets zoekFiets(Integer registratienummer)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @NotNull
+    
     @Override
     public ArrayList<Fiets> zoekAlleFietsen()
     {

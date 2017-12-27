@@ -6,7 +6,8 @@
 package database;
 
 import databag.Lid;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.util.ArrayList;
 
@@ -22,9 +23,9 @@ public interface InterfaceLidDB {
 
     void uitschrijvenLid(String rr) throws Exception;
 
-    @NotNull Lid zoekLid(String rijksregisternummer) throws Exception;
+     Lid zoekLid(String rijksregisternummer) throws Exception;
 
-    @NotNull
+    
     ArrayList<Lid> zoekAlleLeden() throws Exception;
 
 }

@@ -1,13 +1,14 @@
 package database;
 
 import databag.Rit;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.util.ArrayList;
 
 public class RitDB implements InterfaceRitDB {
 
-    @NotNull
+    
     @Override
     public Integer toevoegenRit(Rit rit)
     {
@@ -20,14 +21,14 @@ public class RitDB implements InterfaceRitDB {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @NotNull
+    
     @Override
     public ArrayList zoekAlleRitten()
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @NotNull
+    
     @Override
     public Rit zoekRit(Integer ritID)
     {
@@ -40,14 +41,14 @@ public class RitDB implements InterfaceRitDB {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @NotNull
+    
     @Override
     public ArrayList zoekActieveRittenVanLid(String rr)
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @NotNull
+    
     @Override
     public ArrayList zoekActieveRittenVanFiets(Integer regnr)
     {

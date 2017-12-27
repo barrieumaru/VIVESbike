@@ -3,21 +3,22 @@ package database;
 import databag.Fiets;
 import datatype.Status;
 import facades.Model;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 import java.util.ArrayList;
 
 public class FietsDB implements InterfaceFietsDB
 {
-    @NotNull
+    
     @Override
-    public Integer toevoegenFiets(@NotNull Fiets fiets)
+    public Integer toevoegenFiets( Fiets fiets)
     {
         return (Integer) fiets.store().get(0);
     }
 
     @Override
-    public void wijzigenToestandFiets(@NotNull Integer regnr, @NotNull Status status)
+    public void wijzigenToestandFiets( Integer regnr,  Status status)
     {
         Fiets fiets = new Fiets();
         fiets.find(regnr);
@@ -26,7 +27,7 @@ public class FietsDB implements InterfaceFietsDB
     }
 
     @Override
-    public void wijzigenOpmerkingFiets(@NotNull Integer regnr, String opmerking)
+    public void wijzigenOpmerkingFiets( Integer regnr, String opmerking)
     {
         Fiets fiets = new Fiets();
         fiets.find(regnr);
@@ -34,14 +35,14 @@ public class FietsDB implements InterfaceFietsDB
         fiets.update();
     }
 
-    @NotNull
+    
     @Override
-    public Fiets zoekFiets(@NotNull Integer regnr)
+    public Fiets zoekFiets( Integer regnr)
     {
         return Model.constructModel(Fiets.class).find(regnr);
     }
 
-    @NotNull
+    
     @Override
     public ArrayList<Fiets> zoekAlleFietsen()
     {

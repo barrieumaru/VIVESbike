@@ -4,19 +4,20 @@ import databag.Fiets;
 import datatype.Standplaats;
 import datatype.Status;
 import facades.Comparator;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+import org.junit.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class FietsDBTest
+public class FietsDBTest
 {
+    public FietsDBTest()
+    {
+            
+    }
     private int key = 12345;
     private FietsDB db = new FietsDB();
 
-    @BeforeEach
-    void setUp()
+    @Before
+    public void setUp()
     {
         Fiets fiets = new Fiets();
         if (fiets.find(key).isEmpty())
@@ -29,14 +30,14 @@ class FietsDBTest
         }
     }
 
-    @AfterEach
-    void tearDown()
+    @After
+    public void tearDown()
     {
         (new Fiets()).where(Comparator.GT("registratienummer", "0")).delete();
     }
 
     @Test
-    void toevoegenFiets()
+    public void toevoegenFiets()
     {
         Fiets toevoegen = new Fiets();
         toevoegen.setStatus(Status.actief);
@@ -47,27 +48,27 @@ class FietsDBTest
     }
 
     @Test
-    void wijzigenToestandFiets()
+    public void wijzigenToestandFiets()
     {
         db.wijzigenToestandFiets(key, Status.uit_omloop);
         assertEquals(Status.uit_omloop, (new Fiets()).find(key).getStatus());
     }
 
     @Test
-    void wijzigenOpmerkingFiets()
+    public void wijzigenOpmerkingFiets()
     {
         db.wijzigenOpmerkingFiets(key, "een andere opmerking");
         assertEquals("een andere opmerking", (new Fiets()).find(key).getOpmerking());
     }
 
     @Test
-    void zoekFiets()
+    public void zoekFiets()
     {
         assertEquals((new Fiets()).find(key), db.zoekFiets(key));
     }
 
     @Test
-    void zoekAlleFietsen()
+    public void zoekAlleFietsen()
     {
         assertEquals((Integer) key, db.zoekAlleFietsen().get(0).getRegistratienummer());
     }

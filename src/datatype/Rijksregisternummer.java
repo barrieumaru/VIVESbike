@@ -2,14 +2,15 @@
 package datatype;
 
 import exception.ApplicationException;
-import org.jetbrains.annotations.NotNull;
+
+;
 
 
 public class Rijksregisternummer
 {
     private String rijksregisternummer;
     
-    public Rijksregisternummer(@NotNull String rr)
+    public Rijksregisternummer( String rr)
             throws ApplicationException
     {
         //controle correct rijksregisternummer

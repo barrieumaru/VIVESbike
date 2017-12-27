@@ -2,7 +2,6 @@
 package databag;
 
 import datatype.Rijksregisternummer;
-import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -51,7 +50,7 @@ public class Rit {
         this.prijs = prijs;
     }
 
-    @Nullable
+    
     public String getLidRijksregisternummer() {
         if (lidRijksregisternummer == null) {
             return null;
