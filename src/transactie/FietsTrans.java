@@ -2,18 +2,19 @@
 package transactie;
 
 import databag.Fiets;
-
-;
+import facades.Repository;
 
 import java.util.ArrayList;
 
-public class FietsTrans implements InterfaceFietsTrans {
+public class FietsTrans extends Repository implements InterfaceFietsTrans {
 
     
     @Override
     public Integer toevoegenFiets(Fiets fiets)
     {
-       // fiets.store();
+        if (!isStoreable(fiets))
+            throw new RuntimeException();//exceptions moeten nog aagepaste worden
+        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
