@@ -7,8 +7,6 @@ package ui.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import ui.VIVESbike;
 
@@ -17,7 +15,8 @@ import ui.VIVESbike;
  *
  * @author Martijn
  */
-public class StartschermController implements Initializable {
+public class StartschermController implements Initializable
+{
 
     // referentie naar VIVESbike (main)
     private VIVESbike parent;
