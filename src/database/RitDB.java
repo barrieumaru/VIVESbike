@@ -2,7 +2,7 @@ package database;
 
 import databag.Rit;
 
-;
+
 
 import java.util.ArrayList;
 

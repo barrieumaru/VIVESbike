@@ -10,12 +10,7 @@ import facades.Model;
 public class Rit extends Model<Rit>
 {
 
-    private Integer ritID;
-    private LocalDateTime starttijd;
-    private LocalDateTime eindtijd;
-    private BigDecimal prijs;
-    private Rijksregisternummer lidRijksregisternummer;
-    private int fietsRegistratienummer;
+    
 
     public Rit() 
     {
@@ -23,56 +18,54 @@ public class Rit extends Model<Rit>
     }
 
     public Integer getRitID() {
-        return ritID;
+        return (Integer) getField("ritID");
     }
 
     public void setRitID(Integer RitID) {
-        this.ritID = RitID;
+         setField("ritID", RitID);
     }
 
     public LocalDateTime getStarttijd() {
-        return starttijd;
+        return LocalDateTime.parse((String) getField("starttijd"));
     }
 
     public void setStarttijd(LocalDateTime starttijd) {
-        this.starttijd = starttijd;
+         setField("starttijd", starttijd);
     }
 
     public LocalDateTime getEindtijd() {
-        return eindtijd;
+        return LocalDateTime.parse((String) getField("eindtijd"));
     }
 
     public void setEindtijd(LocalDateTime eindtijd) {
-        this.eindtijd = eindtijd;
+         setField("eindtijd", eindtijd);
     }
 
     public BigDecimal getPrijs() {
-        return prijs;
+        return (BigDecimal)getField("prijs");
     }
 
     public void setPrijs(BigDecimal prijs) {
-        this.prijs = prijs;
+         setField("prijs", prijs);
     }
 
     
     public String getLidRijksregisternummer() {
-        if (lidRijksregisternummer == null) {
-            return null;
-        } else {
-            return lidRijksregisternummer.getRijksregisternummer();
-        }
+        
+            return (String) getField("getRijksregisternummer()");
+        
     }
 
     public void setLidRijksregisternummer(Rijksregisternummer lidRijksregisternummer) {
-        this.lidRijksregisternummer = lidRijksregisternummer;
+         setField("lidRijksregisternummer",lidRijksregisternummer);
     }
 
     public int getFietsRegistratienummer() {
-        return fietsRegistratienummer;
+        return (int) getField("fietsRegistratienummer");
     }
 
     public void setFietsRegistratienummer(int fietsRegistratienummer) {
-        this.fietsRegistratienummer = fietsRegistratienummer;
+         setField("fietsRegistratienummer", fietsRegistratienummer);
     }
 
 }
